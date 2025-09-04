@@ -1,35 +1,32 @@
 # CS 260 Notes
 
-[My startup - Simon](https://simon.cs260.click)
+[Simon Startup](https://simon.cs260.click)
 
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
 - [Canvas](https://byu.instructure.com)
 - [MDN](https://developer.mozilla.org)
+- [Class Notes](#class-notes)
 
-## AWS
+## Production Notes
 
-My IP address is: 54.81.96.130
-Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
+### AWS
 
-## Caddy
+My IP address is: ____
+(Section TBD)
 
-No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
+### Caddy
 
-## HTML
+(TBD) [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
 
-This was easy. I was careful to use the correct structural elements such as header, footer, main, nav, and form. The links between the three views work great using the `a` element.
+### HTML
 
-The part I didn't like was the duplication of the header and footer code. This is messy, but it will get cleaned up when I get to React.
+(TBD)
 
-## CSS
+### CSS
 
-This took a couple hours to get it how I wanted. It was important to make it responsive and Bootstrap helped with that. It looks great on all kinds of screen sizes.
-
-Bootstrap seems a bit like magic. It styles things nicely, but is very opinionated. You either do, or you do not. There doesn't seem to be much in between.
-
-I did like the navbar it made it super easy to build a responsive header.
+(I don't really know what's going on in this section, so I'll leave it for now)
 
 ```html
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -59,7 +56,7 @@ I did like the navbar it made it super easy to build a responsive header.
     </header>
 ```
 
-I also used SVG to make the icon and logo for the app. This turned out to be a piece of cake.
+(Oh look, there's more)
 
 ```html
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -68,15 +65,13 @@ I also used SVG to make the icon and logo for the app. This turned out to be a p
 </svg>
 ```
 
-## React Part 1: Routing
+### React Part 1: Routing
 
-Setting up Vite and React was pretty simple. I had a bit of trouble because of conflicting CSS. This isn't as straight forward as you would find with Svelte or Vue, but I made it work in the end. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way.
+(Wow, this example has a lot of notes)
 
-## React Part 2: Reactivity
+### React Part 2: Reactivity
 
-This was a lot of fun to see it all come together. I had to keep remembering to use React state instead of just manipulating the DOM directly.
-
-Handling the toggling of the checkboxes was particularly interesting.
+(This looks exciting)
 
 ```jsx
 <div className="input-group sound-button-container">
@@ -97,3 +92,13 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+
+## Class Notes
+
+### Table of contents
+
+1. [Github](#github)
+
+### Github
+
+Pretty basic coverage of commit/pull/push commands.
