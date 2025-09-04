@@ -7,18 +7,20 @@
 - [Course instruction](https://github.com/webprogramming260)
 - [Canvas](https://byu.instructure.com)
 - [MDN](https://developer.mozilla.org)
-- [Class Notes](#class-notes)
+- [Markdown Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [**Class Notes**](#class-notes)
 
 ## Production Notes
 
 ### AWS
 
 My IP address is: ____
+
 (Section TBD)
 
 ### Caddy
 
-(TBD) [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
+(TBD) [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md)
 
 ### HTML
 
