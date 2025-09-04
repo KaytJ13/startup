@@ -8,7 +8,7 @@
 - [Canvas](https://byu.instructure.com)
 - [MDN](https://developer.mozilla.org)
 - [Markdown Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-- [**Class Notes**](#class-notes)
+- [**Class Notes**](class-notes.md)
 
 ## Production Notes
 
@@ -94,13 +94,3 @@ My IP address is: ____
   ))}
 </div>
 ```
-
-## Class Notes
-
-### Table of contents
-
-1. [Github](#github)
-
-### Github
-
-Pretty basic coverage of commit/pull/push commands.
