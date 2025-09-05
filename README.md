@@ -13,14 +13,14 @@ _Behalten_ is a web-based application intended to assist users in maintaining or
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Have you ever spent time studying a foreign language only to remember none of it a short time later? Have you moved away from home and no longer have opportunities to speak your native language? _Behalten_ is an application allowing users to maintain their language skills. Users can connect with others of their skill level and practice together in a natural conversation setting.
 
 ### Design
 
@@ -37,13 +37,15 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login
+- Ability to select language and ability level
+- Ability to select user with whom to message
+- Ability to hold a conversation message stream with other users
+- Ability to define English words
 
 ### Technologies
 
-I am going to use the required technologies in the following ways.
+The required technologies will be implemented to provide the following:
 
 - **HTML** - Description here
 - **CSS** - Description here
