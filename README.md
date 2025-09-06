@@ -15,7 +15,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [ ] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
-- [ ] Description of how you will use each technology
+- [x] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
@@ -47,12 +47,18 @@ sequenceDiagram
 
 The required technologies will be implemented to provide the following:
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - HTML structure to build 4 pages. One for login, one for language selection, one for space (ability level) selection, and one for the actual conversation space. 
+- **CSS** - Styling to appear visually appealing on various sizes of screens, including spacing, color palette, and more.
+- **React** - Provides login/register and logout, displays language options, displays available spaces, allows the user to select language and space, displays other users, allows the user to open or close a chat, sends messages, returns to a previous page, requests and displays definitions, and uses React for endpoint calls and routing.
+- **Service** - Backend with endpoints to:
+    - Login, logout, and register a user
+    - Join a space
+    - Retrieve users in a space
+    - Send messages
+    - Leave a space
+    - Request a definition (using the [Free Dictionary](https://dictionaryapi.dev) API)
+- **DB/Login** - Stores user data, stores authentication data, and stores spaces and occupants.
+- **WebSocket** - Broadcasts messages to other users in the chat, broadcasts join/leave notifications to other users in the space, and receives definitions.
 
 ## 🚀 AWS deliverable
 
