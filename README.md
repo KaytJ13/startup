@@ -2,22 +2,22 @@
 
 [My Notes](notes.md)
 
-_Behalten_ is a web-based application intended to assist users in maintaining or expanding their foreign language skills. It allows users to interact with others who are learning or speak the same language as them, leading to preservation of their skills and growth in their abilities.
+_Behalten_ is a web-based application intended to assist users in maintaining or expanding their foreign language skills. It allows users to interact with others who are learning or who speak the same language as them, leading to preservation of their skills and growth in their abilities.
 
 
 ## 🚀 Specification Deliverable
 
-For this deliverable I did the following (I checked the box `[x]` and added a description for things I completed):
+For this deliverable I did the following (I checked the box `[x]` and added a description for the things I completed):
 
 - [x] **Proper use of Markdown** - I used Markdown properly
-- [x] **A concise and compelling elevator pitch** - I added an elevator pitch
-- [x] **Description of key features** - I described the key features
-- [x] **Description of how you will use each technology** - I planned out and described my use of each technology
-- [ ] **One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.** - I added sketches of my application using Markdown image references
+- [x] **A concise and compelling elevator pitch** - I added an [elevator pitch](#elevator-pitch)
+- [x] **Description of key features** - I described the [key features](#key-features)
+- [x] **Description of how you will use each technology** - I planned out and described my use of each [technology](#technologies)
+- [ ] **One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.** - I added sketches of my application [design](#design) using Markdown image references
 
 ### Elevator pitch
 
-Have you ever spent time studying a foreign language only to remember none of it a short time later? Have you moved away from home and no longer have opportunities to speak your native language? _Behalten_ is an application allowing users to maintain their language skills. Users can connect with others of their skill level and practice together in a natural conversation setting.
+Have you ever spent time studying a foreign language only to remember none of it a short time later? Have you moved away from home and no longer have opportunities to speak your native language? _Behalten_ is an application designed to help users maintain their language skills. Users can connect with others of their skill level and practice together in a natural conversation setting.
 
 ### Design
 
@@ -27,9 +27,33 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor User1
+    participant Website
+    User1->>Website: Login
+    Website-->>User1: Available languages
+    User1->>Website: Language selection
+    Website-->>User1: Available spaces
+    User1->>Website: Space join request
+    Website-->>User1: Current occupants<br/>
+    create actor User2
+    create actor User3
+    par to User2
+        Website-->>User2: User1 joined the space
+    and to User3
+        Website-->>User3: User1 joined the space
+    end
+    User1->>Website: Message
+    par to User2
+        Website-->>User2: User1: Message
+    and to User3
+        Website-->>User3: User1: Message
+    end
+    User3->>Website: Response
+    par to User1
+        Website-->>User1: User3: Response
+    and to User3
+        Website-->>User3: User3: Response
+    end
 ```
 
 ### Key features
