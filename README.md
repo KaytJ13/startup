@@ -34,17 +34,26 @@ sequenceDiagram
     User1->>Website: Language selection
     Website-->>User1: Available spaces
     User1->>Website: Space join request
-    Website-->>User1: Current occupants<br/>
-    create actor User2
-    create actor User3
-    Website-->>User2: User1 joined the space
-    Website-->>User3: User1 joined the space
+    Website-->>User1: Current occupants
+    par
+        create actor User2
+        Website-->>User2: User1 joined the space
+    and
+        create actor User3
+        Website-->>User3: User1 joined the space
+    end
     User1->>Website: Message
-    Website-->>User2: User1: Message
-    Website-->>User3: User1: Message
+    par
+        Website-->>User2: User1: Message
+    and
+        Website-->>User3: User1: Message
+    end
     User3->>Website: Response
-    Website-->>User1: User3: Response
-    Website-->>User3: User3: Response
+    par
+        Website-->>User1: User3: Response
+    and
+        Website-->>User3: User3: Response
+    end
 ```
 
 ### Key features
