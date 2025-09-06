@@ -37,23 +37,14 @@ sequenceDiagram
     Website-->>User1: Current occupants<br/>
     create actor User2
     create actor User3
-    par to User2
-        Website-->>User2: User1 joined the space
-    and to User3
-        Website-->>User3: User1 joined the space
-    par_over
+    Website-->>User2: User1 joined the space
+    Website-->>User3: User1 joined the space
     User1->>Website: Message
-    par to User2
-        Website-->>User2: User1: Message
-    and to User3
-        Website-->>User3: User1: Message
-    par_over
+    Website-->>User2: User1: Message
+    Website-->>User3: User1: Message
     User3->>Website: Response
-    par to User1
-        Website-->>User1: User3: Response
-    and to User3
-        Website-->>User3: User3: Response
-    par_over
+    Website-->>User1: User3: Response
+    Website-->>User3: User3: Response
 ```
 
 ### Key features
