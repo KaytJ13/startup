@@ -21,7 +21,17 @@ Have you ever spent time studying a foreign language only to remember none of it
 
 ### Design
 
-![Design image](placeholder.png)
+This is a tentative mock up for the design of the login page:
+
+![Page 1 mock up](behaltenPage1.png)
+
+This is a tentative mock up for the design of the language selection page:
+
+![Page 2 mock up](behaltenPage2.png)
+
+This is a tentative mock up for the design of the space/ability level selection page.
+
+![Page 3 mock up](behaltenPage3.png)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
