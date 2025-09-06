@@ -27,8 +27,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ```mermaid
 sequenceDiagram
-    actor User1
-    participant Website
+    create actor User1
+    create participant Website
     User1->>Website: Login
     Website-->>User1: Available languages
     User1->>Website: Language selection
