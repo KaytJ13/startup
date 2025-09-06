@@ -13,7 +13,7 @@ For this deliverable I did the following (I checked the box `[x]` and added a de
 - [x] **A concise and compelling elevator pitch** - I added an [elevator pitch](#elevator-pitch)
 - [x] **Description of key features** - I described the [key features](#key-features)
 - [x] **Description of how you will use each technology** - I planned out and described my use of each [technology](#technologies)
-- [ ] **One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.** - I added sketches of my application [design](#design) using Markdown image references
+- [x] **One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.** - I added sketches of my application [design](#design) using Markdown image references
 
 ### Elevator pitch
 
@@ -25,15 +25,19 @@ This is a tentative mock up for the design of the login page:
 
 ![Page 1 mock up](behaltenPage1.png)
 
-This is a tentative mock up for the design of the language selection page:
+The language selection page:
 
 ![Page 2 mock up](behaltenPage2.png)
 
-This is a tentative mock up for the design of the space/ability level selection page.
+The space/ability level selection page:
 
 ![Page 3 mock up](behaltenPage3.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The space page where the user can interact with others and chat in the target language:
+
+![Page 4 mock up](behaltenPage4.png)
+
+This is a simplified sequence diagram showing the idea of how the various clients will interact with the website:
 
 ```mermaid
 sequenceDiagram
