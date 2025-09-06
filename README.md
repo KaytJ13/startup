@@ -41,16 +41,19 @@ sequenceDiagram
         Website-->>User2: User1 joined the space
     and to User3
         Website-->>User3: User1 joined the space
+    par_over
     User1->>Website: Message
     par to User2
         Website-->>User2: User1: Message
     and to User3
         Website-->>User3: User1: Message
+    par_over
     User3->>Website: Response
     par to User1
         Website-->>User1: User3: Response
     and to User3
         Website-->>User3: User3: Response
+    par_over
 ```
 
 ### Key features
