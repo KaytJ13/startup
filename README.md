@@ -99,7 +99,7 @@ The required technologies will be implemented to provide the following:
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://behalten.click).
 
 ## 🚀 HTML deliverable
 

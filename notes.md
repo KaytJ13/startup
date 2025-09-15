@@ -14,9 +14,9 @@
 
 ### AWS
 
-My IP address is: ____
+My IP address is: 44.205.238.241
 
-(Section TBD)
+My domain name is: [behalten.click](https://behalten.click)
 
 ### Caddy
 
