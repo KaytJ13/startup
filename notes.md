@@ -20,7 +20,7 @@ My domain name is: [behalten.click](https://behalten.click)
 
 ### Caddy
 
-(TBD) [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md)
+Caddy allows HTTPS connections! I honestly don't remember what else this deliverable entailed.
 
 ### HTML
 

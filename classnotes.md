@@ -4,6 +4,7 @@
 
 1. [Github](#github)
 2. [AWS](#aws)
+3. [HTML](#html)
 
 ## Github
 
@@ -18,3 +19,6 @@ Some helpful acronym definitions:
 - **HTTPS**: **H**yper**t**ext **T**ransport **P**rotocol **S**ecure
 - **TLS**: **T**ransport **L**ayer **S**ecurity
 
+## HTML
+
+**HTML** (**H**yper**t**ext **M**arkup **L**anguage) provides basic structure to web pages. (More to come . . .)
