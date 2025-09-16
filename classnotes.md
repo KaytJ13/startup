@@ -21,4 +21,6 @@ Some helpful acronym definitions:
 
 ## HTML
 
-**HTML** (**H**yper**t**ext **M**arkup **L**anguage) provides basic structure to web pages. (More to come . . .)
+**HTML** (**H**yper**t**ext **M**arkup **L**anguage) provides basic structure to web pages. Some helpful HTML things:
+- Documents start with `<!DOCTYPE html>`
+- More things to come . . .

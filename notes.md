@@ -24,7 +24,7 @@ Caddy allows HTTPS connections! I honestly don't remember what else this deliver
 
 ### HTML
 
-(TBD)
+Built the basic structure for the site, leaving placeholders for most of the functionality. I kind of want to change my radio option lists to buttons, I think they don't look amazing, but I don't know for sure yet, so I'll leave it.
 
 ### CSS
 
