@@ -105,12 +105,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **HTML pages** - I created four html pages for each part of my application. `index.html` is the landing page and the login page, `language.html` is the page where the user will select their desired conversation language, `level.html` is the page where users will
+- [x] **HTML pages** - I created four html pages for each part of my application. `index.html` is the landing page and the login page, `language.html` is the page where the user will select their desired conversation language, `level.html` is the page where users will interact with other users.
 - [x] **Proper HTML element usage** - I used proper html tags, such as `body`, `main`, `header`, `footer`, and `nav`, among others.
 - [x] **Links** - I have a navigation section on every page linking to the other pages and a footer with a link to my GitHub repository.
 - [x] **Text** - I added text to clarify what was still to be added at each phase and what was going on.
 - [x] **3rd party API placeholder** - I built in a placeholder for where a 3rd party API will help the user define words.
-- [x] **Images** - I inserted an image onto the main page depicting various language speakers and sized it down to better fit the page.
+- [x] **Images** - I inserted an image on each page of the Behalten Logo.
 - [x] **Login placeholder** - I added a form in html as a placeholder for the login.
 - [x] **DB data placeholder** - I added a placeholder for the available user list which will be retrieved from the database.
 - [x] **WebSocket placeholder** - I added a placeholder for where the WebSocket will allow users to message each other and receive notifications.
