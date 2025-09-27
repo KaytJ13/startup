@@ -27,8 +27,42 @@
 
         <main>
             <!-- Before CSS, I should add in some fake user lists and such -->
-            <h3>Database Component (User List)</h3>
-            <h3>App/Websocket Component (Messaging Space)</h3>
+             <section id="UserList">
+                <h3>Database Component (User List)</h3>
+                <ul>
+                    User1
+                    <button id="User1Chat">
+                        Chat
+                    </button>
+                </ul>
+                <ul>
+                    User2
+                    <button id="User2Chat">
+                        Chat
+                    </button>
+                </ul>
+                <ul>
+                    User3
+                    <button id="User3Chat">
+                        Chat
+                    </button>
+                </ul>
+             </section>
+            
+             <section id="MessagingSpace">
+                <h3>App/Websocket Component (Messaging Space)</h3>
+                <div id="Incoming">
+                    <p>Incoming message</p>
+                </div>
+                <div id="Outgoing">
+                    <p>Outgoing Message</p>
+                    <p>A second outgoing message</p>
+                </div>
+                <div id="MessageInput">
+                    <input type="Message" id="CurrentMessage" placeholder="Text Here" />
+                </div>
+             </section>
+            
             <h3>App Component (Define English Words)</h3>
         </main>
 
