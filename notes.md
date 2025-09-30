@@ -31,8 +31,8 @@ Built the basic structure for the site, leaving placeholders for most of the fun
 I've been using a combination of bootstrap and css to do the syling. TBH, not really sure what I'm doing. But, it's going.
 
 Still to do:
-- colors and styling (resize logo image)
-- main content for every page
+- colors and styling (resize logo image??)
+- main content organization for every page
 - fix the stupid favicon
 - all of the stuff that's actually listed in the README
 - window sizing flexability
