@@ -44,17 +44,36 @@
             <!-- Level/Space selection -->
             <form action="space.html">
                 <legend>Ability Level</legend>
-                <label for="Beginner">Beginner</label>
-                <input type="radio" id="Beginner" name="varRadio" value="Beginner" checked />
-                <label for="Intermediate">Intermediate</label>
-                <input type="radio" id="Intermediate" name="varRadio" value="Intermediate" />
-                <label for="Advanced">Advanced</label>
-                <input type="radio" id="Advanced" name="varRadio" value="Advanced" />
-                <label for="Native">Native Speaker</label>
-                <input type="radio" id="Native" name="varRadio" value="Native" />
-                <button type="submit">Select</button>
+                
+                <input type="radio" class="btn-check" id="Beginner" name="varRadio" value="Beginner" autocomplete="off" />
+                <label for="Beginner" class="btn btn-outline-secondary">Beginner</label>
+                
+                <input type="radio" class="btn-check" id="Intermediate" name="varRadio" value="Intermediate" autocomplete="off" />
+                <label for="Intermediate" class="btn btn-outline-primary">Intermediate</label>
+                
+                <input type="radio" class="btn-check" id="Advanced" name="varRadio" value="Advanced" autocomplete="off" />
+                <label for="Advanced" class="btn btn-outline-success">Advanced</label>
+                
+                <input type="radio" class="btn-check" id="Native" name="varRadio" value="Native" autocomplete="off" />
+                <label for="Native" class="btn btn-outline-danger">Native Speaker</label>
+
+                <button type="submit" class="btn btn-secondary">Select</button>
             </form>
         </main>
+
+            <!--
+                <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
+
+                <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+                <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Checked</label><br>
+
+                <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="success-outlined">Checked success radio</label>
+
+                <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+                <label class="btn btn-outline-danger" for="danger-outlined">Danger radio</label>
+            -->
 
         <footer>
             <hr />
