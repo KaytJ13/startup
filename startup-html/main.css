@@ -17,6 +17,10 @@ body {
 
 header {
   flex: 0 80px;
+  /* margin-top: 0px; */
+  /* margin-bottom: 0px; */
+  /* padding-bottom: 0px; */
+  /* padding-top: 0px; */
 }
 
 main {
@@ -29,6 +33,11 @@ main {
 
 footer {
   flex: 0 30px;
+}
+
+nav img {
+  height: 15%;
+  flex: 1;
 }
 
 menu {
@@ -45,8 +54,13 @@ menu {
 }
 
 menu .nav-item {
+  /* flex: 1; */
   padding: 0 0.3em;
 }
+
+/* header nav menu ul div {
+  float: right;
+} */
 
 footer a {
   float: right;

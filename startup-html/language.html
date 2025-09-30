@@ -23,7 +23,7 @@
                 <!-- Navigation links and such -->
                 <menu class="container-fluid">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Logout [User]</a></li>
                         <li class="nav-item"><a class="nav-link" href="language.html">Language Selection</a></li>
                         <li class="nav-item"><a class="nav-link" href="level.html">Ability Level Selection</a></li>
                         <li class="nav-item"><a class="nav-link" href="space.html">Conversation Space</a></li>
@@ -40,13 +40,17 @@
             <!-- Language selection form -->
             <form action="level.html">
                 <legend>Language</legend>
-                <label for="English">English</label>
-                <input type="radio" id="English" name="varRadio" value="English" checked />
-                <label for="Español">Español</label>
-                <input type="radio" id="Español" name="varRadio" value="Español" />
-                <label for="Deutsch">Deutsch</label>
-                <input type="radio" id="Deutsch" name="varRadio" value="Deutsch" />
-                <button type="submit">Select</button>
+                
+                <input type="radio" class="btn-check" name="options-outlined" autocomplete="off" id="English" name="varRadio" value="English" />
+                <label for="English" class="btn btn-outline-primary">English</label>
+                
+                <input type="radio" class="btn-check" name="options-outlined" autocomplete="off" id="Español" name="varRadio" value="Español" />
+                <label for="Español" class="btn btn-outline-danger">Español</label>
+                
+                <input type="radio" class="btn-check" name="options-outlined" autocomplete="off" id="Deutsch" name="varRadio" value="Deutsch" />
+                <label for="Deutsch" class="btn btn-outline-success">Deutsch</label>
+
+                <button type="submit" class="btn btn-secondary">Select</button>
             </form>
         </main>
 
