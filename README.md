@@ -119,7 +119,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **Header, footer, and main content body** - I styled the header, footer, and main content body using CSS and bootstrap.
+- [x] **Header, footer, and main content body** - I styled the header, footer, and main content body using CSS and bootstrap. Please note that in order to see my github link, you have to scroll down to the bottom and the window has to be sized large enough.
 - [x] **Navigation elements** - I styled the navigation elements to actually look like a navigation bar.
 - [x] **Responsive to window resizing** - I used flex in CSS to allow my content to be sensitive to window resizing.
 - [x] **Application elements** - I styled my application elements so they don't look quite as bad. I also added more detail to allow for the information to be better displayed, even as it is still nonfunctional.
