@@ -13,7 +13,7 @@
     <body>
         <header class="sticky-top">
 
-            <nav class="navbar navbar-expand-lg bg-light">
+            <nav class="navbar navbar-expand-lg bg-secondary">
                 <a class="navbar-brand" href="https://getbootstrap.com/"></a>
                     <h1>
                         <img src="Behalten Logo.png" alt="Behalten Logo" width="300">
@@ -38,20 +38,26 @@
 
         <main>
             <!-- Language selection form -->
-            <form action="level.html">
-                <legend>Language</legend>
-                
-                <input type="radio" class="btn-check" autocomplete="off" id="English" name="varRadio" value="English" />
-                <label for="English" class="btn btn-outline-primary">English</label>
-                
-                <input type="radio" class="btn-check" autocomplete="off" id="Español" name="varRadio" value="Español" />
-                <label for="Español" class="btn btn-outline-danger">Español</label>
-                
-                <input type="radio" class="btn-check" autocomplete="off" id="Deutsch" name="varRadio" value="Deutsch" />
-                <label for="Deutsch" class="btn btn-outline-success">Deutsch</label>
+            <div class="container text-center">
+                <form action="level.html">
+                    <div class="row align-items-center">
+                        <legend>Language</legend>
+                    </div>
+                    
+                    <div class="col align-items-center">
+                        <input type="radio" class="btn-check" autocomplete="off" id="English" name="varRadio" value="English" />
+                        <label for="English" class="btn btn-outline-primary">English</label>
+                        
+                        <input type="radio" class="btn-check" autocomplete="off" id="Español" name="varRadio" value="Español" />
+                        <label for="Español" class="btn btn-outline-danger">Español</label>
+                        
+                        <input type="radio" class="btn-check" autocomplete="off" id="Deutsch" name="varRadio" value="Deutsch" />
+                        <label for="Deutsch" class="btn btn-outline-success">Deutsch</label>
 
-                <button type="submit" class="btn btn-secondary">Select</button>
-            </form>
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </div>
+                </form>
+            </div>
         </main>
 
         <footer>

@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
 }
 
 html {
@@ -18,7 +18,7 @@ body {
 
 header {
   flex: 0 80px;
-  background-color: aliceblue;
+  /* background-color: #41464bba; */
 }
 
 main {

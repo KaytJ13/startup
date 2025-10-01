@@ -14,7 +14,7 @@
     <body>
         <header class="sticky-top">
 
-            <nav class="navbar navbar-expand-lg bg-light">
+            <nav class="navbar navbar-expand-lg bg-secondary">
                 <a class="navbar-brand" href="https://getbootstrap.com/"></a>
                     <h1>
                         <img src="Behalten Logo.png" alt="Behalten Logo" width="300">
@@ -42,23 +42,29 @@
 
         <main>
             <!-- Level/Space selection -->
-            <form action="space.html">
-                <legend>Ability Level</legend>
-                
-                <input type="radio" class="btn-check" id="Beginner" name="varRadio" value="Beginner" autocomplete="off" />
-                <label for="Beginner" class="btn btn-outline-secondary">Beginner</label>
-                
-                <input type="radio" class="btn-check" id="Intermediate" name="varRadio" value="Intermediate" autocomplete="off" />
-                <label for="Intermediate" class="btn btn-outline-primary">Intermediate</label>
-                
-                <input type="radio" class="btn-check" id="Advanced" name="varRadio" value="Advanced" autocomplete="off" />
-                <label for="Advanced" class="btn btn-outline-success">Advanced</label>
-                
-                <input type="radio" class="btn-check" id="Native" name="varRadio" value="Native" autocomplete="off" />
-                <label for="Native" class="btn btn-outline-danger">Native Speaker</label>
+            <div class="container text-center">
+                <form action="space.html">
+                    <div class="row align-items-center">
+                        <legend>Ability Level</legend>
+                    </div>
+                    
+                    <div class="col align-items-center">
+                        <input type="radio" class="btn-check" id="Beginner" name="varRadio" value="Beginner" autocomplete="off" />
+                        <label for="Beginner" class="btn btn-outline-secondary">Beginner</label>
+                        
+                        <input type="radio" class="btn-check" id="Intermediate" name="varRadio" value="Intermediate" autocomplete="off" />
+                        <label for="Intermediate" class="btn btn-outline-primary">Intermediate</label>
+                        
+                        <input type="radio" class="btn-check" id="Advanced" name="varRadio" value="Advanced" autocomplete="off" />
+                        <label for="Advanced" class="btn btn-outline-success">Advanced</label>
+                        
+                        <input type="radio" class="btn-check" id="Native" name="varRadio" value="Native" autocomplete="off" />
+                        <label for="Native" class="btn btn-outline-danger">Native Speaker</label>
 
-                <button type="submit" class="btn btn-secondary">Select</button>
-            </form>
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </div>
+                </form>
+            </div>
         </main>
 
             <!--
