@@ -39,7 +39,7 @@ Still to do:
 
 ### React Part 1: Routing
 
-(Wow, this example has a lot of notes)
+Was cool. Would be super fun to also add an 'about' section that links through the Behalten logo. Just a thought. Not sure I want to do that all and also the formatting right now, though.
 
 ### React Part 2: Reactivity
 
