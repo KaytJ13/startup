@@ -1,5 +1,6 @@
 import React from 'react';
 import './space.css';
+import { Message, MessageNotifier } from './messageNotifier';
 
 import Button from 'react-bootstrap/Button';
 
@@ -8,6 +9,8 @@ export function Space(props) {
     const [currentChat, setCurrentChat] = React.useState(localStorage.getItem('currentChat') || '');
     const [word, setWord] = React.useState(localStorage.getItem('word') || '');
     const [definition, setDefiniton] = React.useState(localStorage.getItem('definiton') || '');
+    const [currentMessage, setCurrentMessage] = React.useState(localStorage.getItem('currentMessage') || '');
+    const [messages, setMessages] = React.useState([]);
 
     function setChat(user) {
         localStorage.setItem('currentChat', user);
@@ -51,17 +54,38 @@ export function Space(props) {
         usersDisplay.push(<li>No users online.</li>);
     }
 
-    setInterval(() => {
-        // This will be replaced with WebSocket messages
-        const userName = `User-${Math.floor(Math.random() * 100)}`;
-        displayPeerMessage({ msg: 'Hello', from: userName });
-    }, 1000);
-
     async function searchWord(word) {
         // This will be replaced by a call to a third party API
         setDefiniton('n. A definition or two will appear here');
         localStorage.setItem('definition', definition);
     }
+
+    React.useEffect(() => {
+        MessageNotifier.addHandler(handleMessage);
+
+        return () => {
+            MessageNotifier.removeHandler(handleMessage);
+        }
+    }, []);
+
+    function handleMessage(message) {
+        setMessages((prevMessages) => {
+            return [message, ...prevMessages];
+        });
+    }
+
+    function createMessages() {
+        const messageArray = [];
+        for (const i = 0; i < 10; i++) {
+            let curr = 'Hello world!';
+
+            messageArray.push(
+                <p>{curr}</p>
+            );
+        }
+        return messageArray;
+    }
+
 
   return (
     <main>
@@ -86,13 +110,16 @@ export function Space(props) {
             <section className="messagingSpace">
             <h3>Messaging Space:</h3>
             <h4>Chat with: {currentChat}</h4>
-            <div className="messageIncoming">
+            <div className="mesages">
+                {createMessages()}
+            </div>
+            {/* <div className="messageIncoming">
                 <p from={currentChat}>Incoming message</p>
             </div>
             <div className="messageOutgoing">
                 <p from={props.username}>Outgoing Message</p>
                 <p from={props.username}>A second outgoing message</p>
-            </div>
+            </div> */}
             <div id="messageInput">
                 <input type="message" id="currentMessage" placeholder="Text Here" />
                 <button type="submit" id="send">Send</button>

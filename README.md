@@ -138,8 +138,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - I implemented or mocked out all functionality for my web application. This involved setting up a login, selections for level and language, and mocking out the definitions, user list, and messaging.
+- [x] **Hooks** - I used `React.useState()` and `React.useEffect()` within my code.
 
 ## 🚀 Service deliverable
 
