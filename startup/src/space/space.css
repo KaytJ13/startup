@@ -12,11 +12,13 @@ section:nth-child(2) {
 }
 
 section .userList {
+    padding-left: 35px;
     margin-bottom: 35px;
     margin-right: 35px;
 }
 
 section .dictionary {
+    padding-left: 35px;
     border: thin black solid;
     margin-top: 25px;
     margin-right: 35px;

@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 export function Space(props) {
     const [onlineUsers, setOnlineUsers] = React.useState([]);
     const [currentChat, setCurrentChat] = React.useState(localStorage.getItem('currentChat') || '');
+    const [word, setWord] = React.useState(localStorage.getItem('word') || '');
+    const [definition, setDefiniton] = React.useState(localStorage.getItem('definiton') || '');
 
     function setChat(user) {
         localStorage.setItem('currentChat', user);
@@ -39,7 +41,7 @@ export function Space(props) {
             usersDisplay.push(
                 <li>
                     {user.name}
-                    <button onClick={() => setChat(user.name)}>
+                    <button class='outline-secondary' onClick={() => setChat(user.name)}>
                         Chat
                     </button>
                 </li>
@@ -55,6 +57,12 @@ export function Space(props) {
         displayPeerMessage({ msg: 'Hello', from: userName });
     }, 1000);
 
+    async function searchWord(word) {
+        // This will be replaced by a call to a third party API
+        setDefiniton('n. A definition or two will appear here');
+        localStorage.setItem('definition', definition);
+    }
+
   return (
     <main>
         <section id="left">
@@ -62,7 +70,6 @@ export function Space(props) {
                 <h3>Online Users:</h3>
                 <ul>
                     {usersDisplay}
-                    {/* Users here */}
                 </ul>
                 
             </section>
@@ -70,8 +77,9 @@ export function Space(props) {
             <section className="dictionary">
                 <h3>App Component (Define English Words)</h3>
                 <label for="definitionSearch">Define: </label>
-                <input type="word" id="definitionSearch" placeholder="Text Here" />
-                <p id="definitionResponse">n. A definition or two will appear here</p>
+                <input type="word" id="definitionSearch" placeholder="Text Here" value={word} onChange={(e) => setWord(e.target.value)} />
+                <Button variant='outline-primary' onClick={searchWord} >Search</Button>
+                <p id="definitionResponse">{definition}</p>
             </section>
             </section>
 
