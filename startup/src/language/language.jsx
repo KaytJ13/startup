@@ -1,6 +1,14 @@
 import React from 'react';
 
-export function Language() {
+export function Language(props) {
+    const [language, setLanguage] = React.useState(props.language);
+
+    async function pickLanguage() {
+        localStorage.setItem('language', language);
+        props.onLanguageChange(userName);
+        navigate('/level')
+    }
+
   return (
     <main>
         {/* <!-- Language selection form --> */}
@@ -11,16 +19,16 @@ export function Language() {
                 </div>
                 
                 <div className="col align-items-center">
-                    <input type="radio" className="btn-check" autocomplete="off" id="English" name="varRadio" value="English" />
+                    <input type="radio" className="btn-check" autocomplete="off" id="English" name="varRadio" value="English" onChange={(e) => setLanguage(e.target.value)} />
                     <label for="English" className="btn btn-outline-primary">English</label>
                     
-                    <input type="radio" className="btn-check" autocomplete="off" id="Español" name="varRadio" value="Español" />
+                    <input type="radio" className="btn-check" autocomplete="off" id="Español" name="varRadio" value="Español" onChange={(e) => setLanguage(e.target.value)} />
                     <label for="Español" className="btn btn-outline-danger">Español</label>
                     
-                    <input type="radio" className="btn-check" autocomplete="off" id="Deutsch" name="varRadio" value="Deutsch" />
+                    <input type="radio" className="btn-check" autocomplete="off" id="Deutsch" name="varRadio" value="Deutsch" onChange={(e) => setLanguage(e.target.value)} />
                     <label for="Deutsch" className="btn btn-outline-success">Deutsch</label>
 
-                    <button type="submit" className="btn btn-secondary">Select</button>
+                    <button type="submit" className="btn btn-secondary" onClick={pickLanguage}>Select</button>
                 </div>
             </form>
         </div>

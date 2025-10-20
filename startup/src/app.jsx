@@ -13,6 +13,9 @@ export default function App() {
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
 
+    const [language, setLanguage] = React.useState(localStorage.getItem('language') || '');
+    const [level, setLevel] = React.useState(localStorage.getItem('level') || '');
+
   return (
     <BrowserRouter>
         <div className="body">
@@ -34,21 +37,27 @@ export default function App() {
                                         Login
                                     </NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="language">
-                                        Language Selection
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="level">
-                                        Ability Level Selection
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="space">
-                                        Conversation Space
-                                    </NavLink>
-                                </li>
+                                {authState === AuthState.Authenticated && (
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to="language">
+                                            Language Selection
+                                        </NavLink>
+                                    </li>
+                                )}
+                                {authState === AuthState.Authenticated && (
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to="level">
+                                            Ability Level Selection
+                                        </NavLink>
+                                    </li>
+                                )}
+                                {authState === AuthState.Authenticated && (
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to="space">
+                                            Conversation Space
+                                        </NavLink>
+                                    </li>
+                                )}
                             </ul>
                             
                         </menu>
@@ -75,9 +84,18 @@ export default function App() {
                         exact 
                     />
 
-                    <Route path='/language' element={<Language username={userName} />} />
-                    <Route path='/level' element={<Level />} />
-                    <Route path='/space' element={<Space />} />
+                    <Route 
+                        path='/language' 
+                        element={
+                            <Language 
+                            language={language} 
+                            onLanguageChange={(language) => setLanguage(language)}
+                            />
+                        } 
+                        exact
+                    />
+                    <Route path='/level' element={<Level language={language} />} />
+                    <Route path='/space' element={<Space username={userName} language={language} leverl={level} />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
 
