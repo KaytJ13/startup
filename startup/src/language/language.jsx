@@ -1,12 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import Button from 'react-bootstrap/Button';
 
 export function Language(props) {
+    const navigate = useNavigate();
     const [language, setLanguage] = React.useState(props.language);
 
     async function pickLanguage() {
         localStorage.setItem('language', language);
-        props.onLanguageChange(userName);
-        navigate('/level')
+        props.onLanguageChange(language);
+        navigate('/level');
     }
 
   return (
@@ -28,7 +32,9 @@ export function Language(props) {
                     <input type="radio" className="btn-check" autocomplete="off" id="Deutsch" name="varRadio" value="Deutsch" onChange={(e) => setLanguage(e.target.value)} />
                     <label for="Deutsch" className="btn btn-outline-success">Deutsch</label>
 
-                    <button type="submit" className="btn btn-secondary" onClick={pickLanguage}>Select</button>
+                    <Button variant='secondary' onClick={pickLanguage}>Select</Button>
+
+                    {/* <Button variant='secondary' onClick={pickLevel}>Select</Button> */}
                 </div>
             </form>
         </div>

@@ -94,8 +94,27 @@ export default function App() {
                         } 
                         exact
                     />
-                    <Route path='/level' element={<Level language={language} />} />
-                    <Route path='/space' element={<Space username={userName} language={language} leverl={level} />} />
+                    <Route 
+                        path='/level' 
+                        element={
+                            <Level 
+                            level={level}
+                            onLevelChange={(level) => setLevel(level)}
+                            />
+                        } 
+                        exact
+                    />
+                    <Route 
+                        path='/space' 
+                        element={
+                            <Space 
+                            username={userName} 
+                            language={language} 
+                            level={level} 
+                            />
+                        } 
+                        exact
+                    />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
 
