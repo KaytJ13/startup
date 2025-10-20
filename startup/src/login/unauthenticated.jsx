@@ -6,16 +6,18 @@ import Button from 'react-bootstrap/Button';
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
   const [password, setPassword] = React.useState('');
-  const [displayError, setDisplayError] = React.useState(null);
+//   const [displayError, setDisplayError] = React.useState(null);
 
   async function loginUser() {
     localStorage.setItem('userName', userName);
     props.onLogin(userName);
+    localStorage.setItem('password', password);
   }
 
   async function createUser() {
     localStorage.setItem('userName', userName);
     props.onLogin(userName);
+    localStorage.setItem('password', password);
   }
 
   return (
@@ -32,7 +34,7 @@ export function Unauthenticated(props) {
                     </div>
                     <div>
                         <label for="Password">Password: </label>
-                        <input type="password" id="Password" placeholder="password" />
+                        <input type="password" id="Password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
                     </div>
                     <Button variant='primary' onClick={() => loginUser()} >
                         {/* disabled={!userName || !password} */}
