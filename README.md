@@ -138,7 +138,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **All functionality implemented or mocked out** - I implemented or mocked out all functionality for my web application. This involved setting up a login, selections for level and language, and mocking out the definitions, user list, and messaging.
+- [x] **All functionality implemented or mocked out** - I implemented or mocked out all functionality for my web application. This involved setting up a login, selections for level and language, and mocking out the definitions, user list, and messaging. For mock ups, the dictionary displays a random text whenever a word is input, the user list has random users to "chat with," and the messaging area has randomly generated messages fed through a websocket-esque structure. The current message is also fed through the websocket-esque structure, although it doesn't display as it is broadcast to everyone else (theoretically).
 - [x] **Hooks** - I used `React.useState()` and `React.useEffect()` within my code.
 
 ## 🚀 Service deliverable
