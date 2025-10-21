@@ -40,4 +40,4 @@ class MessageNotifier {
 }
 
 const ConstMessageNotifier = new MessageNotifier();
-export { Message, MessageNotifier };
+export { Message, ConstMessageNotifier };

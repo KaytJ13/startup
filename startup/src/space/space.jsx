@@ -1,6 +1,6 @@
 import React from 'react';
 import './space.css';
-import { Message, MessageNotifier } from './messageNotifier';
+import { Message, ConstMessageNotifier } from './messageNotifier';
 
 import Button from 'react-bootstrap/Button';
 
@@ -61,10 +61,10 @@ export function Space(props) {
     }
 
     React.useEffect(() => {
-        MessageNotifier.addHandler(handleMessage);
+        ConstMessageNotifier.addHandler(handleMessage);
 
         return () => {
-            MessageNotifier.removeHandler(handleMessage);
+            ConstMessageNotifier.removeHandler(handleMessage);
         }
     }, []);
 
@@ -76,7 +76,7 @@ export function Space(props) {
 
     function createMessages() {
         const messageArray = [];
-        for (const i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             let curr = 'Hello world!';
 
             messageArray.push(
@@ -110,8 +110,9 @@ export function Space(props) {
             <section className="messagingSpace">
             <h3>Messaging Space:</h3>
             <h4>Chat with: {currentChat}</h4>
-            <div className="mesages">
+            <div className="messages">
                 {createMessages()}
+                {/* Messages here */}
             </div>
             {/* <div className="messageIncoming">
                 <p from={currentChat}>Incoming message</p>
@@ -121,8 +122,8 @@ export function Space(props) {
                 <p from={props.username}>A second outgoing message</p>
             </div> */}
             <div id="messageInput">
-                <input type="message" id="currentMessage" placeholder="Text Here" />
-                <button type="submit" id="send">Send</button>
+                <input type="message" id="currentMessage" placeholder="Text Here" value={currentMessage} onChange={(e) => setCurrentMessage(e.target.value)} />
+                <button type="submit" id="send" onClick={() => ConstMessageNotifier.broadcastEvent(props.userName, currentMessage, {from: props.userName, content: currentMessage})}>Send</button>
             </div>
             </section>
         
