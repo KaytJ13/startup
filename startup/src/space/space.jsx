@@ -55,9 +55,23 @@ export function Space(props) {
     }
 
     async function searchWord(word) {
+    //     fetch('https://quote.cs260.click')
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setQuote(data.quote);
+    //     setQuoteAuthor(data.author);
+    //   })
+    //   .catch();
+
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+word)
+    .then((response) => response.json())
+    .then((data) => {
+        setDefiniton(data.meanings);
+    })
+    .catch();
+
         // This will be replaced by a call to a third party API
         setDefiniton('n. A definition or two will appear here');
-        localStorage.setItem('definition', definition);
     }
 
     React.useEffect(() => {
