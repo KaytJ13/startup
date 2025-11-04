@@ -18,6 +18,7 @@ section .userList {
 }
 
 section .dictionary {
+    padding: 15px;
     padding-left: 35px;
     border: thin black solid;
     margin-top: 25px;
