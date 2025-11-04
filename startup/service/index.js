@@ -24,7 +24,7 @@ app.use(`/api`, apiRouter);
 
 // CreateAuth (new user)
 apiRouter.post('/auth/create', async (req, res) => {
-  console.log('Entered create endpoint');
+  // console.log('Entered create endpoint');
   if (await findUser('email', req.body.email)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
@@ -37,7 +37,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 // GetAuth (login)
 apiRouter.post('/auth/login', async (req, res) => {
-  console.log('entered login endpoint');
+  // console.log('entered login endpoint');
   const user = await findUser('email', req.body.email);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {

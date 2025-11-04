@@ -54,27 +54,35 @@ export function Space(props) {
         usersDisplay.push(<li>No users online.</li>);
     }
 
-    async function searchWord(word) {
+    async function searchWord() {
     //     fetch('https://quote.cs260.click')
     //   .then((response) => response.json())
     //   .then((data) => {
-    //     setQuote(data.quote);
-    //     setQuoteAuthor(data.author);
+    //     setDefiniton(data.quote);
+    //     // setQuote(data.quote);
+    //     // setQuoteAuthor(data.author);
     //   })
     //   .catch();
+    // setDefiniton(`https://api.dictionaryapi.dev/api/v2/entries/en/${String(word)}`)
+    let address = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + String(word);
 
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+word)
+    fetch(address) //`https://api.dictionaryapi.dev/api/v2/entries/en/word`
     .then((response) => response.json())
     .then((data) => {
         // let definitionList = data.meanings;
         // If I want to go with the original idea and do a dictionary, I'll mess with the data here to pull out the definition
-
-        setDefiniton(data.phonetic);
+        if (data.title) {
+            setDefiniton(data.title); 
+        } else {
+            let infos = data[0].meanings[0];
+            // let partOfSpeech = infos.partOfSpeech;
+            setDefiniton(`${infos.partOfSpeech}. ${infos.definitions[0].definition}`);
+        }
     })
     .catch();
 
         // This will be replaced by a call to a third party API
-        setDefiniton('n. A definition or two will appear here');
+        // setDefiniton('n. A definition or two will appear here');
     }
 
     React.useEffect(() => {
@@ -116,8 +124,8 @@ export function Space(props) {
             </section>
             
             <section className="dictionary">
-                <h3>English Pronounciation Guide</h3>
-                <label for="definitionSearch">Search: </label>
+                <h3>English Dictionary</h3>
+                <label for="definitionSearch">Define:   </label>
                 <input type="word" id="definitionSearch" placeholder="Text Here" value={word} onChange={(e) => setWord(e.target.value)} />
                 <Button variant='outline-primary' onClick={searchWord} >Search</Button>
                 <p id="definitionResponse">{definition}</p>
