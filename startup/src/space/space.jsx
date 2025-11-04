@@ -66,7 +66,10 @@ export function Space(props) {
     fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+word)
     .then((response) => response.json())
     .then((data) => {
-        setDefiniton(data.meanings);
+        // let definitionList = data.meanings;
+        // If I want to go with the original idea and do a dictionary, I'll mess with the data here to pull out the definition
+
+        setDefiniton(data.phonetic);
     })
     .catch();
 
@@ -113,8 +116,8 @@ export function Space(props) {
             </section>
             
             <section className="dictionary">
-                <h3>App Component (Define English Words)</h3>
-                <label for="definitionSearch">Define: </label>
+                <h3>English Pronounciation Guide</h3>
+                <label for="definitionSearch">Search: </label>
                 <input type="word" id="definitionSearch" placeholder="Text Here" value={word} onChange={(e) => setWord(e.target.value)} />
                 <Button variant='outline-primary' onClick={searchWord} >Search</Button>
                 <p id="definitionResponse">{definition}</p>

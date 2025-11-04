@@ -1,9 +1,10 @@
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 const authCookieName = 'token';
 
@@ -21,18 +22,9 @@ app.use(cookieParser());
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-  server: {
-    proxy: {
-      '/api': 'http://localhost:4000',
-    },
-  },
-});
-
 // CreateAuth (new user)
 apiRouter.post('/auth/create', async (req, res) => {
+  console.log('Entered create endpoint');
   if (await findUser('email', req.body.email)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
@@ -45,6 +37,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 // GetAuth (login)
 apiRouter.post('/auth/login', async (req, res) => {
+  console.log('entered login endpoint');
   const user = await findUser('email', req.body.email);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
@@ -119,4 +112,3 @@ function setAuthCookie(res, authToken) {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
