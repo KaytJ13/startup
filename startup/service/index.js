@@ -9,6 +9,7 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 const authCookieName = 'token';
 
 let users = [];
+let onlineUsers = [];
 
 app.use(express.static('public'));
 
@@ -69,6 +70,21 @@ const verifyAuth = async (req, res, next) => {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
+
+function addRandomUsers(users) {
+    const newUser = { name: 'user1' };
+    const newUser2 = { name: 'user2'};
+    const newUser3 = { name: 'user3'};
+
+    users.push(newUser);
+    users.push(newUser2);
+    users.push(newUser3);
+}
+
+apiRouter.get('/online', async (req, res) => {
+  addRandomUsers(onlineUsers);
+  res.send(onlineUsers);
+})
 
 // Default error handler
 app.use(function (err, req, res, next) {

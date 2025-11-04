@@ -17,25 +17,17 @@ export function Space(props) {
         setCurrentChat(user);
     }
 
-    async function addRandomUsers() {
-        let users = [];
-        const newUser = { name: 'user1' };
-        const newUser2 = { name: 'user2'};
-        const newUser3 = { name: 'user3'};
-
-        users.push(newUser);
-        users.push(newUser2);
-        users.push(newUser3);
-
-        localStorage.setItem('onlineUsers', JSON.stringify(users));
-    }
-
     React.useEffect(() => {
-        addRandomUsers();
-        const usersText = localStorage.getItem('onlineUsers');
-        if (usersText) {
-            setOnlineUsers(JSON.parse(usersText));
-        }
+        // addRandomUsers();
+        // const usersText = localStorage.getItem('onlineUsers');
+        // if (usersText) {
+        //     setOnlineUsers(JSON.parse(usersText));
+        // }
+        fetch('/api/online')
+            .then((response) => response.json())
+            .then((onlineUsers) => {
+                setOnlineUsers(onlineUsers);
+            })
     }, [])
 
     const usersDisplay = [];
