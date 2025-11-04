@@ -145,12 +145,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - I created a service using Node.js and Express HTTP.
+- [x] **Static middleware for frontend** - The frontend uses static middleware.
+- [x] **Calls to third party endpoints** - The program calls the Free Dictionary API in order to provide definitions for English words.
+- [x] **Backend service endpoints** - I added backend service endpoints for registering a user, logging in, logging out, and retrieving the user list (which will be implemented further with the database).
+- [x] **Frontend calls service endpoints** - The frontend calls the service endpoints for logging in/out and getting online users.
+- [x] **Supports registration, login, logout, and restricted endpoint** - I added support for registration, login, logout, and restricted endpoint.
 
 
 ## 🚀 DB deliverable
