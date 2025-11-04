@@ -18,11 +18,6 @@ export function Space(props) {
     }
 
     React.useEffect(() => {
-        // addRandomUsers();
-        // const usersText = localStorage.getItem('onlineUsers');
-        // if (usersText) {
-        //     setOnlineUsers(JSON.parse(usersText));
-        // }
         fetch('/api/online')
             .then((response) => response.json())
             .then((onlineUsers) => {
@@ -47,34 +42,19 @@ export function Space(props) {
     }
 
     async function searchWord() {
-    //     fetch('https://quote.cs260.click')
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setDefiniton(data.quote);
-    //     // setQuote(data.quote);
-    //     // setQuoteAuthor(data.author);
-    //   })
-    //   .catch();
-    // setDefiniton(`https://api.dictionaryapi.dev/api/v2/entries/en/${String(word)}`)
     let address = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + String(word);
 
-    fetch(address) //`https://api.dictionaryapi.dev/api/v2/entries/en/word`
+    fetch(address)
     .then((response) => response.json())
     .then((data) => {
-        // let definitionList = data.meanings;
-        // If I want to go with the original idea and do a dictionary, I'll mess with the data here to pull out the definition
         if (data.title) {
             setDefiniton(data.title); 
         } else {
             let infos = data[0].meanings[0];
-            // let partOfSpeech = infos.partOfSpeech;
             setDefiniton(`${infos.partOfSpeech}. ${infos.definitions[0].definition}`);
         }
     })
     .catch();
-
-        // This will be replaced by a call to a third party API
-        // setDefiniton('n. A definition or two will appear here');
     }
 
     React.useEffect(() => {
@@ -129,15 +109,7 @@ export function Space(props) {
             <h4>Chat with: {currentChat}</h4>
             <div className="messages">
                 {createMessages()}
-                {/* Messages here */}
             </div>
-            {/* <div className="messageIncoming">
-                <p from={currentChat}>Incoming message</p>
-            </div>
-            <div className="messageOutgoing">
-                <p from={props.username}>Outgoing Message</p>
-                <p from={props.username}>A second outgoing message</p>
-            </div> */}
             <div id="messageInput">
                 <input type="message" id="currentMessage" placeholder="Text Here" value={currentMessage} onChange={(e) => setCurrentMessage(e.target.value)} />
                 <button type="submit" id="send" onClick={() => ConstMessageNotifier.broadcastEvent(props.userName, currentMessage, {from: props.userName, content: currentMessage})}>Send</button>
