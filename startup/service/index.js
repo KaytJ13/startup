@@ -3,13 +3,14 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+const DB = require('./database.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 const authCookieName = 'token';
 
-let users = [];
-let onlineUsers = [];
+// let users = [];
+// let onlineUsers = [];
 
 app.use(express.static('public'));
 
@@ -71,18 +72,19 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-function addRandomUsers(users) {
-    const newUser = { name: 'user1' };
-    const newUser2 = { name: 'user2'};
-    const newUser3 = { name: 'user3'};
+// function addRandomUsers(users) {
+//     const newUser = { name: 'user1' };
+//     const newUser2 = { name: 'user2'};
+//     const newUser3 = { name: 'user3'};
 
-    users.push(newUser);
-    users.push(newUser2);
-    users.push(newUser3);
-}
+//     users.push(newUser);
+//     users.push(newUser2);
+//     users.push(newUser3);
+// }
 
 apiRouter.get('/online', async (req, res) => {
-  addRandomUsers(onlineUsers);
+  // addRandomUsers(onlineUsers);
+  onlineUsers = DB.getOnline();
   res.send(onlineUsers);
 })
 
