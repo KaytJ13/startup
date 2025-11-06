@@ -1,10 +1,10 @@
 const { MongoClient } = require('mongodb');
 const config = require('./dbConfig.json');
 
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const url = `mongodb+srv://${config.username}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
 const db = client.db('simon');
-const userCollection = db.collection('user');
+const userCollection = db.collection('userBehalten');
 const onlineCollection = db.collection('online');
 
 // This will asynchronously test the connection and exit the process if it fails
@@ -43,7 +43,7 @@ async function removeOnline(user) {
 }
 
 function getOnline() {
-    const people = onlineCollection.find({});
+    const people = onlineCollection.find();
     return people.toArray();
 }
 
