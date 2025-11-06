@@ -9,9 +9,6 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 const authCookieName = 'token';
 
-// let users = [];
-// let onlineUsers = [];
-
 app.use(express.static('public'));
 
 // JSON parsing
@@ -26,7 +23,6 @@ app.use(`/api`, apiRouter);
 
 // CreateAuth (new user)
 apiRouter.post('/auth/create', async (req, res) => {
-  // console.log('Entered create endpoint');
   if (await findUser('email', req.body.email)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
@@ -39,11 +35,12 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 // GetAuth (login)
 apiRouter.post('/auth/login', async (req, res) => {
-  // console.log('entered login endpoint');
   const user = await findUser('email', req.body.email);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
+      await DB.updateUser(user);
+      await DB.addOnline(user);
       setAuthCookie(res, user.token);
       res.send({ email: user.email });
       return;
@@ -57,6 +54,8 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
     delete user.token;
+    DB.updateUser(user);
+    DB.removeOnline(user);
   }
   res.clearCookie(authCookieName);
   res.status(204).end();
@@ -84,7 +83,7 @@ const verifyAuth = async (req, res, next) => {
 
 apiRouter.get('/online', async (req, res) => {
   // addRandomUsers(onlineUsers);
-  onlineUsers = DB.getOnline();
+  const onlineUsers = await DB.getOnline();
   res.send(onlineUsers);
 })
 
@@ -106,7 +105,8 @@ async function createUser(email, password) {
     password: passwordHash,
     token: uuid.v4(),
   };
-  users.push(user);
+  await DB.addUser(user);
+  await DB.addOnline(user);
 
   return user;
 }
@@ -114,7 +114,10 @@ async function createUser(email, password) {
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  if (field === 'token') {
+    return DB.getUserByToken(value);
+  }
+  return DB.getUser(value);
 }
 
 // setAuthCookie in the HTTP response
@@ -127,6 +130,6 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
