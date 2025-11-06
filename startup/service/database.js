@@ -35,15 +35,17 @@ async function updateUser(user) {
 }
 
 async function addOnline(user) {
-  return onlineCollection.insertOne(user);
+  return onlineCollection.insertOne({ email: user.email});
 }
 
 async function removeOnline(user) {
-    await onlineCollection.deleteOne({ token: user.token})
+    // onlineCollection.deleteMany();
+    await onlineCollection.deleteOne({ email: user.email})
 }
 
 function getOnline() {
     const people = onlineCollection.find();
+    console.log(`Ran getOnline. Found people = ${JSON.stringify(people)}`)
     return people.toArray();
 }
 
