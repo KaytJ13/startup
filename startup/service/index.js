@@ -89,27 +89,9 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-function addRandomUsers(users) {
-    const newUser = { name: 'user1', language: 'Deutsch', level: 'Native' };
-    const newUser2 = { name: 'user2', language: 'English', level: 'Beginner'};
-    const newUser3 = { name: 'user3', language: 'Spanish', level: 'Advanced'};
-
-    // const newUser = { name: 'user1' };
-    // const newUser2 = { name: 'user2' };
-    // const newUser3 = { name: 'user3' }
-
-    users.push(newUser);
-    users.push(newUser2);
-    users.push(newUser3);
-}
-
 apiRouter.get('/online', async (req, res) => {
-  res.send(addRandomUsers([]));
-
-  // console.log('called getOnline endpoint')
-  // const onlineUsers = await DB.getOnline();
-  // console.log(`Ran getOnline endpoint. Found people = ${JSON.stringify(onlineUsers)}`)
-  // res.send(onlineUsers);
+  const onlineUsers = await DB.getOnline();
+  res.send(JSON.stringify(onlineUsers));
 })
 
 // Default error handler

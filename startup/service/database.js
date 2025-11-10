@@ -43,11 +43,7 @@ async function removeOnline(user) {
 }
 
 async function getOnline() {
-    console.log("Ran getOnline db")
     return onlineCollection.find().toArray();
-    // const people = [{ email: 'user1' }, { email: 'user2'}];
-    // console.log(`Ran getOnline. Found people = ${JSON.stringify(people)}`)
-    // return JSON.stringify(people); //.toArray()
 }
 
 module.exports = {

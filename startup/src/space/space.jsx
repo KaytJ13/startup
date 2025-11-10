@@ -11,7 +11,6 @@ export function Space(props) {
     const [definition, setDefiniton] = React.useState(localStorage.getItem('definiton') || '');
     const [currentMessage, setCurrentMessage] = React.useState(localStorage.getItem('currentMessage') || '');
     const [messages, setMessages] = React.useState([]);
-    // let onlineUsers = [];
 
     function setChat(user) {
         localStorage.setItem('currentChat', user);
@@ -21,16 +20,14 @@ export function Space(props) {
     React.useEffect(() => {
         fetch('/api/online')
             .then((response) => response.json())
-            .then((onlineUsersRet) => {
-                console.log(`Found onlineUsers = ${JSON.stringify(onlineUsers)}`)
-                // onlineUsers = JSON.parse(onlineUsers).toArray();
-                setOnlineUsers(JSON.parse(onlineUsersRet));
+            .then((onlineUsers) => {
+                setOnlineUsers(onlineUsers);
             })
     }, [])
     
 
     const usersDisplay = [];
-    if (onlineUsers.length) {
+    if (onlineUsers.length > 0) {
         for (const [i, user] of onlineUsers.entries()) {
             usersDisplay.push(
                 <li>
