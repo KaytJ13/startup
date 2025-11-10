@@ -9,6 +9,8 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 const authCookieName = 'token';
 
+// const [onlineUsers, setOnlineUsers] = React.useState([]);
+
 app.use(express.static('public'));
 
 // JSON parsing
@@ -51,12 +53,28 @@ apiRouter.post('/auth/login', async (req, res) => {
 
 // DeleteAuth (logout)
 apiRouter.delete('/auth/logout', async (req, res) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
+  let user = await findUser('token', req.cookies[authCookieName]);
+  if (!user) {
+    try {
+      user = await findUser('email', req.body.email);
+      DB.removeOnline(user);
+    } catch (err) {
+      console.error('Error in logout:', err);
+    }
+    res.clearCookie(authCookieName);
+    res.status(204).end();
+    return;
+  }
   if (user) {
-    DB.removeOnline(user);
+    try {
+      DB.removeOnline(user);
+    } catch (err) {
+      console.error('Error in logout:', err);
+    }
     delete user.token;
     DB.updateUser(user);
   }
+  
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
@@ -71,20 +89,27 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-// function addRandomUsers(users) {
-//     const newUser = { name: 'user1' };
-//     const newUser2 = { name: 'user2'};
-//     const newUser3 = { name: 'user3'};
+function addRandomUsers(users) {
+    const newUser = { name: 'user1', language: 'Deutsch', level: 'Native' };
+    const newUser2 = { name: 'user2', language: 'English', level: 'Beginner'};
+    const newUser3 = { name: 'user3', language: 'Spanish', level: 'Advanced'};
 
-//     users.push(newUser);
-//     users.push(newUser2);
-//     users.push(newUser3);
-// }
+    // const newUser = { name: 'user1' };
+    // const newUser2 = { name: 'user2' };
+    // const newUser3 = { name: 'user3' }
+
+    users.push(newUser);
+    users.push(newUser2);
+    users.push(newUser3);
+}
 
 apiRouter.get('/online', async (req, res) => {
-  // addRandomUsers(onlineUsers);
-  const onlineUsers = await DB.getOnline();
-  res.send(onlineUsers);
+  res.send(addRandomUsers([]));
+
+  // console.log('called getOnline endpoint')
+  // const onlineUsers = await DB.getOnline();
+  // console.log(`Ran getOnline endpoint. Found people = ${JSON.stringify(onlineUsers)}`)
+  // res.send(onlineUsers);
 })
 
 // Default error handler

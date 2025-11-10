@@ -3,7 +3,7 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.username}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('simon');
+const db = client.db('behalten');
 const userCollection = db.collection('userBehalten');
 const onlineCollection = db.collection('online');
 
@@ -35,18 +35,19 @@ async function updateUser(user) {
 }
 
 async function addOnline(user) {
-  return onlineCollection.insertOne({ email: user.email});
+  await onlineCollection.insertOne({ email: user.email});
 }
 
 async function removeOnline(user) {
-    // onlineCollection.deleteMany();
-    await onlineCollection.deleteOne({ email: user.email})
+    await onlineCollection.deleteMany({ email: user.email })
 }
 
-function getOnline() {
-    const people = onlineCollection.find();
-    console.log(`Ran getOnline. Found people = ${JSON.stringify(people)}`)
-    return people.toArray();
+async function getOnline() {
+    console.log("Ran getOnline db")
+    return onlineCollection.find().toArray();
+    // const people = [{ email: 'user1' }, { email: 'user2'}];
+    // console.log(`Ran getOnline. Found people = ${JSON.stringify(people)}`)
+    // return JSON.stringify(people); //.toArray()
 }
 
 module.exports = {
