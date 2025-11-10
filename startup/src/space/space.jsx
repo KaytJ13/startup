@@ -12,6 +12,14 @@ export function Space(props) {
     const [currentMessage, setCurrentMessage] = React.useState(localStorage.getItem('currentMessage') || '');
     const [messages, setMessages] = React.useState([]);
 
+    fetch('/api/auth/online', {
+        method: 'post', 
+        body: JSON.stringify({ email: props.userName, level: props.level, language: props.language }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+
     function setChat(user) {
         localStorage.setItem('currentChat', user);
         setCurrentChat(user);
@@ -31,7 +39,7 @@ export function Space(props) {
         for (const [i, user] of onlineUsers.entries()) {
             usersDisplay.push(
                 <li>
-                    {user.email}
+                    {user.email}, language: {user.language}, level: {user.level}
                     <button class='outline-secondary' onClick={() => setChat(user.email)}>
                         Chat
                     </button>

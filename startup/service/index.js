@@ -42,7 +42,6 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
       await DB.updateUser(user);
-      await DB.addOnline(user);
       setAuthCookie(res, user.token);
       res.send({ email: user.email });
       return;
@@ -50,6 +49,10 @@ apiRouter.post('/auth/login', async (req, res) => {
   }
   res.status(401).send({ msg: 'Unauthorized' });
 });
+
+apiRouter.post('/auth/online', async (req, res) => {
+  await DB.addOnline(req.body.email, req.body.level, req.body.language);
+})
 
 // DeleteAuth (logout)
 apiRouter.delete('/auth/logout', async (req, res) => {

@@ -40,6 +40,4 @@ I . . . didn't take notes
 
 ### All the problems:
 
-- Fix logout (currently not actually calling the remove from DB thing)
-- Space isn't actually displaying what we want . . .
-  - What if I made a separate endpoint for addOnline and removeOnline which gets called when you enter space and then when you logout and then the online list could just display language and level and such?
+- None right now!

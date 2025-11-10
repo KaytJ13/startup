@@ -34,8 +34,8 @@ async function updateUser(user) {
   await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
-async function addOnline(user) {
-  await onlineCollection.insertOne({ email: user.email});
+async function addOnline(email, level, language) {
+  await onlineCollection.insertOne({ email: email, language: language, level: level});
 }
 
 async function removeOnline(user) {
