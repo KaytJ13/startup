@@ -36,24 +36,10 @@ Was cool. Would be super fun to also add an 'about' section that links through t
 
 ### React Part 2: Reactivity
 
-(This looks exciting)
+I . . . didn't take notes
 
-```jsx
-<div className="input-group sound-button-container">
-  {calmSoundTypes.map((sound, index) => (
-    <div key={index} className="form-check form-switch">
-      <input
-        className="form-check-input"
-        type="checkbox"
-        value={sound}
-        id={sound}
-        onChange={() => togglePlay(sound)}
-        checked={selectedSounds.includes(sound)}
-      ></input>
-      <label className="form-check-label" htmlFor={sound}>
-        {sound}
-      </label>
-    </div>
-  ))}
-</div>
-```
+### All the problems:
+
+- Fix logout (currently not actually calling the remove from DB thing)
+- Space isn't actually displaying what we want . . .
+  - What if I made a separate endpoint for addOnline and removeOnline which gets called when you enter space and then when you logout and then the online list could just display language and level and such?
