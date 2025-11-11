@@ -157,8 +157,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - The database keeps track of which users are online and their chosen languages and levels and displays this information on the final page (space.jsx, after a language and level is selected).
+- [x] **Stores credentials in MongoDB** - The database properly stores user information in order to allow logging in with a username and password.
 
 ## 🚀 WebSocket deliverable
 
