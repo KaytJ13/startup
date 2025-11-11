@@ -51,13 +51,13 @@ export default function App() {
                                         </NavLink>
                                     </li>
                                 )}
-                                {authState === AuthState.Authenticated && (
+                                {/* {authState === AuthState.Authenticated && (
                                     <li className="nav-item">
                                         <NavLink className="nav-link" to="space">
                                             Conversation Space
                                         </NavLink>
                                     </li>
-                                )}
+                                )} */}
                             </ul>
                             
                         </menu>
