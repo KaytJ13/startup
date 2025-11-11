@@ -116,7 +116,6 @@ async function createUser(email, password) {
     token: uuid.v4(),
   };
   await DB.addUser(user);
-  await DB.addOnline(user);
 
   return user;
 }
