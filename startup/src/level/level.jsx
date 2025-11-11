@@ -10,6 +10,15 @@ export function Level(props) {
     async function pickLevel() {
         localStorage.setItem('level', level);
         props.onLevelChange(level);
+
+        fetch('/api/auth/online', {
+            method: 'post', 
+            body: JSON.stringify({ email: localStorage.getItem('userName'), level: level, language: localStorage.getItem('language') }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+
         navigate('/space');
     }
 
