@@ -1,6 +1,7 @@
 import React from 'react';
 import './space.css';
-import { Message, ConstMessageNotifier } from './messageNotifier';
+// import { ChatClient } from './chatClient';
+import { MessageNotifier } from './messageNotifier';
 
 import Button from 'react-bootstrap/Button';
 
@@ -11,6 +12,8 @@ export function Space(props) {
     const [definition, setDefiniton] = React.useState(localStorage.getItem('definiton') || '');
     const [currentMessage, setCurrentMessage] = React.useState(localStorage.getItem('currentMessage') || '');
     const [messages, setMessages] = React.useState([]);
+    const username = localStorage.getItem('username');
+    // const websocket = new ChatClient();
 
     function setChat(user) {
         localStorage.setItem('currentChat', user);
@@ -59,29 +62,72 @@ export function Space(props) {
     }
 
     React.useEffect(() => {
-        ConstMessageNotifier.addHandler(handleMessage);
+        MessageNotifier.addHandler(handleMessage);
 
         return () => {
-            ConstMessageNotifier.removeHandler(handleMessage);
+            MessageNotifier.removeHandler(handleMessage);
         }
     }, []);
 
     function handleMessage(message) {
-        setMessages((prevMessages) => {
-            return [message, ...prevMessages];
-        });
+        setMessages([...messages, message]);
     }
 
     function createMessages() {
         const messageArray = [];
-        for (let i = 0; i < 10; i++) {
-            let curr = 'Hello world!';
+        for (const [i, message] of messages.entries()) {
+            let sender = 'unknown';
+            if (message.from === username) {
+                sender = 'sent';
+            } else if (message.from === 'System') {
+                sender = 'system';
+            } else {
+                sender = 'received';
+            }
 
             messageArray.push(
-                <p>{curr}</p>
+                <div key={i}>
+                    <span className={sender}>{message.from}</span> {message.content}
+                </div>
             );
         }
         return messageArray;
+    }
+
+    function Conversation({ webSocket }) {
+        // const [chats, setChats] = React.useState([]);
+        // React.useEffect(() => {
+        //     webSocket.addObserver((chat) => {
+        //         setChats((prevMessages) => [...prevMessages, chat]);
+        //     });
+        // }, [webSocket]);
+
+        // const chatEls = chats.map((chat, index) => (
+        //     <div key={index}>
+        //         <span className={chat.event}>{chat.from}</span> {chat.msg}
+        //     </div>
+        // ));
+
+        const chatEls = 'Hello world!';
+
+        return (
+            <main>
+                <div id='chat-text'>{chatEls}</div>
+            </main>
+        );
+    }
+
+
+    function doneMessage(e) {
+        if (e.key === 'Enter') {
+            sendMsg();
+        }
+    }
+
+    function sendMsg() {
+        // websocket.sendMessage(currentChat, currentMessage);
+        MessageNotifier.broadcastEvent(username, currentMessage);
+        setCurrentMessage('');
     }
 
 
@@ -109,11 +155,12 @@ export function Space(props) {
             <h3>Messaging Space:</h3>
             <h4>Chat with: {currentChat}</h4>
             <div className="messages">
+                {/* <Conversation webSocket={websocket} /> */}
                 {createMessages()}
             </div>
             <div id="messageInput">
-                <input type="message" id="currentMessage" placeholder="Text Here" value={currentMessage} onChange={(e) => setCurrentMessage(e.target.value)} />
-                <button type="submit" id="send" onClick={() => ConstMessageNotifier.broadcastEvent(props.userName, currentMessage, {from: props.userName, content: currentMessage})}>Send</button>
+                <input type="message" id="currentMessage" placeholder="Text Here" value={currentMessage} onKeyDown={(e) => doneMessage(e)} onChange={(e) => setCurrentMessage(e.target.value)} />
+                <button type="submit" id="send" onClick={sendMsg}>Send</button>
             </div>
             </section>
         
