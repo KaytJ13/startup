@@ -5,21 +5,31 @@ class Message {
     }
 }
 
-class MessageNotifier {
+class ChatMessageNotifier {
   events = [];
   handlers = [];
 
   constructor() {
-    // Simulate chat messages that will eventually come over WebSocket
-    setInterval(() => {
-      const user = 'Eich';
-      this.broadcastEvent(user, "Message", {from: user, content: "Message"});
-    }, 5000);
+    let port = window.location.port;
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+        this.socket.onopen = (event) => {
+          this.receiveEvent(new Message('System', { msg: 'connected' }));
+        };
+        this.socket.onclose = (event) => {
+          this.receiveEvent(new Message('System', { msg: 'disconnected' }));
+        };
+        this.socket.onmessage = async (msg) => {
+          try {
+            const event = JSON.parse(await msg.data.text());
+            this.receiveEvent(event);
+          } catch {}
+        };
   }
 
   broadcastEvent(from, content, jsonVersion) {
     const event = new Message(from, content);
-    this.receiveEvent(event);
+    this.socket.send(JSON.stringify(event));
   }
 
   addHandler(handler) {
@@ -33,11 +43,13 @@ class MessageNotifier {
   receiveEvent(event) {
     this.events.push(event);
 
-    this.handlers.forEach((handler) => {
-      handler(event);
+    this.events.forEach((e) => {
+      this.handlers.forEach((handler) => {
+        handler(e);
+      });
     });
   }
 }
 
-const ConstMessageNotifier = new MessageNotifier();
-export { Message, ConstMessageNotifier };
+const MessageNotifier = new ChatMessageNotifier();
+export { MessageNotifier };
