@@ -40,4 +40,5 @@ I . . . didn't take notes
 
 ### All the problems:
 
-- None right now!
+- Only displaying one message at a time, and only the one from the other person.
+- Chat with: ___ is no longer applicable, it's just a chat with everybody
