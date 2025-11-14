@@ -1,6 +1,5 @@
 import React from 'react';
 import './space.css';
-// import { ChatClient } from './chatClient';
 import { MessageNotifier } from './messageNotifier';
 
 import Button from 'react-bootstrap/Button';
@@ -12,8 +11,7 @@ export function Space(props) {
     const [definition, setDefiniton] = React.useState(localStorage.getItem('definiton') || '');
     const [currentMessage, setCurrentMessage] = React.useState(localStorage.getItem('currentMessage') || '');
     const [messages, setMessages] = React.useState([]);
-    const username = localStorage.getItem('username');
-    // const websocket = new ChatClient();
+    const username = props.username;
 
     function setChat(user) {
         localStorage.setItem('currentChat', user);
@@ -75,6 +73,7 @@ export function Space(props) {
 
     function createMessages() {
         const messageArray = [];
+
         for (const [i, message] of messages.entries()) {
             let sender = 'unknown';
             if (message.from === username) {
@@ -94,29 +93,6 @@ export function Space(props) {
         return messageArray;
     }
 
-    function Conversation({ webSocket }) {
-        // const [chats, setChats] = React.useState([]);
-        // React.useEffect(() => {
-        //     webSocket.addObserver((chat) => {
-        //         setChats((prevMessages) => [...prevMessages, chat]);
-        //     });
-        // }, [webSocket]);
-
-        // const chatEls = chats.map((chat, index) => (
-        //     <div key={index}>
-        //         <span className={chat.event}>{chat.from}</span> {chat.msg}
-        //     </div>
-        // ));
-
-        const chatEls = 'Hello world!';
-
-        return (
-            <main>
-                <div id='chat-text'>{chatEls}</div>
-            </main>
-        );
-    }
-
 
     function doneMessage(e) {
         if (e.key === 'Enter') {
@@ -125,7 +101,6 @@ export function Space(props) {
     }
 
     function sendMsg() {
-        // websocket.sendMessage(currentChat, currentMessage);
         MessageNotifier.broadcastEvent(username, currentMessage);
         setCurrentMessage('');
     }
@@ -155,8 +130,9 @@ export function Space(props) {
             <h3>Messaging Space:</h3>
             <h4>Chat with: {currentChat}</h4>
             <div className="messages">
-                {/* <Conversation webSocket={websocket} /> */}
-                {createMessages()}
+                <main>
+                    <div id='chat-text'>{createMessages()}</div>
+                </main>
             </div>
             <div id="messageInput">
                 <input type="message" id="currentMessage" placeholder="Text Here" value={currentMessage} onKeyDown={(e) => doneMessage(e)} onChange={(e) => setCurrentMessage(e.target.value)} />
