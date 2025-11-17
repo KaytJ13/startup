@@ -41,15 +41,19 @@ class ChatMessageNotifier {
   }
 
   receiveEvent(event) {
-    this.events.push(event);
+    // this.events.push(event);
 
-    this.events.forEach((e) => {
-      this.handlers.forEach((handler) => {
-        handler(e);
-      });
+    // this.events.forEach((e) => {
+    //   this.handlers.forEach((handler) => {
+    //     handler(e);
+    //   });
+    // });
+
+    this.handlers.forEach((handler) => {
+      handler(event);
     });
   }
 }
 
 const MessageNotifier = new ChatMessageNotifier();
-export { MessageNotifier };
+export { Message, MessageNotifier };

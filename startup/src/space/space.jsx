@@ -1,6 +1,6 @@
 import React from 'react';
 import './space.css';
-import { MessageNotifier } from './messageNotifier';
+import { Message, MessageNotifier } from './messageNotifier';
 
 import Button from 'react-bootstrap/Button';
 
@@ -33,9 +33,9 @@ export function Space(props) {
             usersDisplay.push(
                 <li>
                     {user.email}, language: {user.language}, level: {user.level}
-                    <button class='outline-secondary' onClick={() => setChat(user.email)}>
+                    {/* <button class='outline-secondary' onClick={() => setChat(user.email)}>
                         Chat
-                    </button>
+                    </button> */}
                 </li>
             );
         }
@@ -102,6 +102,7 @@ export function Space(props) {
 
     function sendMsg() {
         MessageNotifier.broadcastEvent(username, currentMessage);
+        handleMessage(new Message(username, currentMessage))
         setCurrentMessage('');
     }
 
@@ -128,7 +129,7 @@ export function Space(props) {
 
             <section className="messagingSpace">
             <h3>Messaging Space:</h3>
-            <h4>Chat with: {currentChat}</h4>
+            {/* <h4>Chat with: {currentChat}</h4> */}
             <div className="messages">
                 <main>
                     <div id='chat-text'>{createMessages()}</div>

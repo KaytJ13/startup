@@ -33,6 +33,7 @@ section .dictionary {
   margin-left: 0.5em;
 }
 .sent {
+  margin-left: 0em;
   color: rgb(87, 153, 117);
 }
 .system {
