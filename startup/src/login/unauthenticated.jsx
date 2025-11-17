@@ -33,6 +33,12 @@ export function Unauthenticated(props) {
     }
   }
 
+  function doneLogin(e) {
+    if (e.key === 'Enter') {
+      loginUser();
+    }
+  }
+
   return (
     <>
       <div className="container text-center">
@@ -47,7 +53,7 @@ export function Unauthenticated(props) {
                     </div>
                     <div>
                         <label for="Password">Password: </label>
-                        <input type="password" id="Password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
+                        <input type="password" id="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => doneLogin(e)} placeholder="password" />
                     </div>
                     <Button variant='primary' onClick={() => loginUser()} >
                         {/* disabled={!userName || !password} */}
