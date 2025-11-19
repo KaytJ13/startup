@@ -40,5 +40,5 @@ I . . . didn't take notes
 
 ### All the problems:
 
-- Only displaying one message at a time, and only from the other person.
-- Chat with: ___ is no longer applicable, it's just a chat with everybody
+- Only displaying one message from the other person at a time, messages seems to clear with every message received.
+- The messages are way to the right and idk why
