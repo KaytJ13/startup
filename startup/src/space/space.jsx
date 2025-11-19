@@ -68,7 +68,9 @@ export function Space(props) {
     }, []);
 
     function handleMessage(message) {
+        // console.log(`messages = ${messages}\nmessage = ${message}`)
         setMessages([...messages, message]);
+        // console.log(`messages = ${messages}\nmessage = ${message}`)
     }
 
     function createMessages() {
@@ -86,6 +88,7 @@ export function Space(props) {
 
             messageArray.push(
                 <div key={i}>
+                    {/* <p>Messages = {messages.length}</p> */}
                     <span className={sender}>{message.from}</span> {message.content}
                 </div>
             );
