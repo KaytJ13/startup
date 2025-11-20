@@ -11,6 +11,7 @@ function peerProxy(httpServer) {
     socket.on('message', function message(data) {
       socketServer.clients.forEach((client) => {
         if (client !== socket && client.readyState === WebSocket.OPEN) {
+        // console.log(data);
           client.send(data);
         }
       });

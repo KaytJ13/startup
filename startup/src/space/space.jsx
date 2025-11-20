@@ -10,7 +10,7 @@ export function Space(props) {
     const [word, setWord] = React.useState(localStorage.getItem('word') || '');
     const [definition, setDefiniton] = React.useState(localStorage.getItem('definiton') || '');
     const [currentMessage, setCurrentMessage] = React.useState(localStorage.getItem('currentMessage') || '');
-    const [messages, setMessages] = React.useState([]);
+    const [messages, setMessages] = React.useState([]); //localStorage.getItem('messages') || 
     const username = props.username;
 
     function setChat(user) {
@@ -69,7 +69,8 @@ export function Space(props) {
 
     function handleMessage(message) {
         // console.log(`messages = ${messages}\nmessage = ${message}`)
-        setMessages([...messages, message]);
+        // setMessages([...messages, message]);
+        setMessages(prevMessages => [...prevMessages, message])
         // console.log(`messages = ${messages}\nmessage = ${message}`)
     }
 
